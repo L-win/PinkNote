@@ -10,12 +10,14 @@ public class Note {
     private int id;
     private String title;
     private String description;
+    private String dateAdded;
     private int priority;
 
-    public Note(String title, String description, int priority) {
+    public Note(String title, String description, String dateAdded, int priority) {
         this.title = title;
         this.description = description;
         this.priority = priority;
+        this.dateAdded = dateAdded;
     }
 
     public void setId(int id) {
@@ -24,6 +26,10 @@ public class Note {
 
     public int getId() {
         return id;
+    }
+
+    public void setDateAdded(String dateAdded) {
+        this.dateAdded = dateAdded;
     }
 
     public String getTitle() {
@@ -36,5 +42,9 @@ public class Note {
 
     public int getPriority() {
         return priority;
+    }
+
+    public String getDateAdded() {
+        return dateAdded;
     }
 }

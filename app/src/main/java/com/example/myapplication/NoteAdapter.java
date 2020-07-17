@@ -73,7 +73,6 @@ public class NoteAdapter extends ListAdapter<Note,NoteAdapter.NoteHolder>{
                     if (listener != null && position != RecyclerView.NO_POSITION){
                         listener.onItemClick(getItem(position));
                     }
-
                 }
             });
 

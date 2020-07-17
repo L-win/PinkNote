@@ -9,6 +9,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.NumberPicker;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class AddEditNoteActivity extends AppCompatActivity {
@@ -17,11 +18,13 @@ public class AddEditNoteActivity extends AppCompatActivity {
     public static final String EXTRA_TITLE = "com.example.myapplication.EXTRA_TITLE";
     public static final String EXTRA_DESCRIPTION = "com.example.myapplication.EXTRA_DESCRIPTION";
     public static final String EXTRA_PRIORITY = "com.example.myapplication.EXTRA_PRIORITY";
+    public static final String EXTRA_DATE_ADDED = "com.example.myapplication.EXTRA_DATE_ADDED";
 
 
     private EditText editTextTitle;
     private EditText editTextDescription;
     private NumberPicker numberPickerPriority;
+    private TextView textViewDateAdded;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,7 @@ public class AddEditNoteActivity extends AppCompatActivity {
         editTextTitle = findViewById(R.id.edit_text_title);
         editTextDescription = findViewById(R.id.edit_text_description);
         numberPickerPriority = findViewById(R.id.number_picker_priority);
+        textViewDateAdded = findViewById(R.id.text_view_date_added);
 
         numberPickerPriority.setMaxValue(10);
         numberPickerPriority.setMinValue(1);
@@ -44,7 +48,8 @@ public class AddEditNoteActivity extends AppCompatActivity {
             editTextTitle.setText(intent.getStringExtra(EXTRA_TITLE));
             editTextDescription.setText(intent.getStringExtra(EXTRA_DESCRIPTION));
             numberPickerPriority.setValue(intent.getIntExtra(EXTRA_PRIORITY,1));
-        }else {
+            textViewDateAdded.setText(intent.getStringExtra(EXTRA_DATE_ADDED));
+        } else {
             setTitle("Add Note");
         }
     }
