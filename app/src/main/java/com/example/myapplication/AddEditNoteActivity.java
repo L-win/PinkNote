@@ -33,6 +33,8 @@ public class AddEditNoteActivity extends AppCompatActivity implements DatePicker
     private NumberPicker numberPickerPriority;
     private TextView textViewDateAdded;
 
+    Calendar c = Calendar.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +76,14 @@ public class AddEditNoteActivity extends AppCompatActivity implements DatePicker
         String description = editTextDescription.getText().toString();
         int priority = numberPickerPriority.getValue();
 
+        String dateAdded;
+        int year = c.get(Calendar.YEAR);
+        int month = c.get(Calendar.MONTH);
+        int day = c.get(Calendar.DAY_OF_MONTH);
+        dateAdded = Integer.toString(year) +
+                "." + Integer.toString(month) +
+                "." + Integer.toString(day);
+
         if (title.trim().isEmpty()||description.trim().isEmpty()){
             Toast.makeText(this, "Fields are empty", Toast.LENGTH_SHORT).show();
             return;
@@ -83,6 +93,7 @@ public class AddEditNoteActivity extends AppCompatActivity implements DatePicker
         data.putExtra(EXTRA_TITLE,title);
         data.putExtra(EXTRA_DESCRIPTION,description);
         data.putExtra(EXTRA_PRIORITY,priority);
+        data.putExtra(EXTRA_DATE_ADDED,dateAdded);
 
         int id = getIntent().getIntExtra(EXTRA_ID,-1);
         if (id != -1){
@@ -99,7 +110,7 @@ public class AddEditNoteActivity extends AppCompatActivity implements DatePicker
         return super.onCreateOptionsMenu(menu);
     }
 
-    public boolean onOptionsItemSelected(MenuItem item){
+    public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.save_note:
                 saveNote();
@@ -110,7 +121,7 @@ public class AddEditNoteActivity extends AppCompatActivity implements DatePicker
     }
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-        Calendar c = Calendar.getInstance();
+
         c.set(Calendar.YEAR, year);
         c.set(Calendar.MONTH, month);
         c.set(Calendar.DAY_OF_MONTH, dayOfMonth);

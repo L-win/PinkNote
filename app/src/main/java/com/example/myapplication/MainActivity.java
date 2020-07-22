@@ -97,27 +97,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        String dateAdded;
-
-        Calendar c = Calendar.getInstance();
-        int year = c.get(Calendar.YEAR);
-        int month = c.get(Calendar.MONTH);
-        int day = c.get(Calendar.DAY_OF_MONTH);
-
-        dateAdded = Integer.toString(year) + "." + Integer.toString(month) + "." + Integer.toString(day);
-
         if (requestCode == ADD_NOTE_REQUEST && resultCode == RESULT_OK) {
             String title = data.getStringExtra(AddEditNoteActivity.EXTRA_TITLE);
             String description = data.getStringExtra(AddEditNoteActivity.EXTRA_DESCRIPTION);
             int priority = data.getIntExtra(AddEditNoteActivity.EXTRA_PRIORITY,1);
+            String dateAdded = data.getStringExtra(AddEditNoteActivity.EXTRA_DATE_ADDED);
 
-//            Toast.makeText(this, dateAdded, Toast.LENGTH_SHORT).show();
             Note note = new Note(title, description, dateAdded, priority);
             noteViewModel.insert(note);
 
             Toast.makeText(this,"Note saved", Toast.LENGTH_LONG).show();
         } else if (requestCode == EDIT_NOTE_REQUEST && resultCode == RESULT_OK) {
             int id = data.getIntExtra(AddEditNoteActivity.EXTRA_ID,-1);
+            String dateAdded = data.getStringExtra(AddEditNoteActivity.EXTRA_DATE_ADDED);
 
             if (id == -1){
                 Toast.makeText(this, "ERROR", Toast.LENGTH_SHORT).show();
