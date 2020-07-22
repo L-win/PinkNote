@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // BUTTON: ADD
         FloatingActionButton buttonAddNote = findViewById(R.id.button_add_note);
         buttonAddNote.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // RECYCLER VIEW
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
@@ -57,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // SWIPES [RECYCLER VIEW]
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(
                 0,
                 ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT) {
@@ -74,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }).attachToRecyclerView(recyclerView);
 
+        // SINGLE ITEM CLICK [RECYCLER VIEW]
         adapter.setOnItemClickListener(new NoteAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Note note) {

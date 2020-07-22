@@ -51,7 +51,6 @@ public class NoteAdapter extends ListAdapter<Note,NoteAdapter.NoteHolder>{
         holder.textViewPriority.setText(String.valueOf(currentNote.getPriority()));
     }
 
-
     public Note getNoteAt(int position){
         return getItem(position);
     }
