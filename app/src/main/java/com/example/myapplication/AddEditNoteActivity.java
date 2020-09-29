@@ -30,7 +30,8 @@ public class AddEditNoteActivity extends AppCompatActivity implements DatePicker
 
     private EditText editTextTitle;
     private EditText editTextDescription;
-    private NumberPicker numberPickerPriority;
+//    private NumberPicker numberPickerPriority;
+    private EditText editTextPriority;
     private TextView textViewDateAdded;
 
     Calendar c = Calendar.getInstance();
@@ -42,7 +43,8 @@ public class AddEditNoteActivity extends AppCompatActivity implements DatePicker
 
         editTextTitle = findViewById(R.id.edit_text_title);
         editTextDescription = findViewById(R.id.edit_text_description);
-        numberPickerPriority = findViewById(R.id.number_picker_priority);
+//        numberPickerPriority = findViewById(R.id.number_picker_priority);
+        editTextPriority = findViewById(R.id.edit_text_priority);
         textViewDateAdded = findViewById(R.id.text_view_date_added);
 
         textViewDateAdded.setOnClickListener(new View.OnClickListener() {
@@ -53,8 +55,8 @@ public class AddEditNoteActivity extends AppCompatActivity implements DatePicker
             }
         });
 
-        numberPickerPriority.setMaxValue(10);
-        numberPickerPriority.setMinValue(1);
+//        numberPickerPriority.setMaxValue(10);
+//        numberPickerPriority.setMinValue(1);
 
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
 
@@ -64,7 +66,9 @@ public class AddEditNoteActivity extends AppCompatActivity implements DatePicker
             setTitle("Edit Note");
             editTextTitle.setText(intent.getStringExtra(EXTRA_TITLE));
             editTextDescription.setText(intent.getStringExtra(EXTRA_DESCRIPTION));
-            numberPickerPriority.setValue(intent.getIntExtra(EXTRA_PRIORITY,1));
+//            numberPickerPriority.setValue(intent.getIntExtra(EXTRA_PRIORITY,1));
+            String priority = Integer.toString(intent.getIntExtra(EXTRA_PRIORITY,1));
+            editTextPriority.setText(priority);
             textViewDateAdded.setText(intent.getStringExtra(EXTRA_DATE_ADDED));
         } else {
             setTitle("Add Note");
@@ -74,7 +78,9 @@ public class AddEditNoteActivity extends AppCompatActivity implements DatePicker
     private void saveNote(){
         String title = editTextTitle.getText().toString();
         String description = editTextDescription.getText().toString();
-        int priority = numberPickerPriority.getValue();
+//        int priority = numberPickerPriority.getValue();
+        String priorityT = editTextPriority.getText().toString();
+        int priorityNew = Integer.parseInt(priorityT);
 
         String dateAdded;
         int year = c.get(Calendar.YEAR);
@@ -92,7 +98,7 @@ public class AddEditNoteActivity extends AppCompatActivity implements DatePicker
         Intent data = new Intent();
         data.putExtra(EXTRA_TITLE,title);
         data.putExtra(EXTRA_DESCRIPTION,description);
-        data.putExtra(EXTRA_PRIORITY,priority);
+        data.putExtra(EXTRA_PRIORITY,priorityNew);
         data.putExtra(EXTRA_DATE_ADDED,dateAdded);
 
         int id = getIntent().getIntExtra(EXTRA_ID,-1);
