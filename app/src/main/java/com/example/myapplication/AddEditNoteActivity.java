@@ -12,7 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,7 +29,6 @@ public class AddEditNoteActivity extends AppCompatActivity implements DatePicker
 
     private EditText editTextTitle;
     private EditText editTextDescription;
-//    private NumberPicker numberPickerPriority;
     private EditText editTextPriority;
     private TextView textViewDateAdded;
 
@@ -43,7 +41,6 @@ public class AddEditNoteActivity extends AppCompatActivity implements DatePicker
 
         editTextTitle = findViewById(R.id.edit_text_title);
         editTextDescription = findViewById(R.id.edit_text_description);
-//        numberPickerPriority = findViewById(R.id.number_picker_priority);
         editTextPriority = findViewById(R.id.edit_text_priority);
         textViewDateAdded = findViewById(R.id.text_view_date_added);
 
@@ -66,7 +63,6 @@ public class AddEditNoteActivity extends AppCompatActivity implements DatePicker
             setTitle("Edit Note");
             editTextTitle.setText(intent.getStringExtra(EXTRA_TITLE));
             editTextDescription.setText(intent.getStringExtra(EXTRA_DESCRIPTION));
-//            numberPickerPriority.setValue(intent.getIntExtra(EXTRA_PRIORITY,1));
             String priority = Integer.toString(intent.getIntExtra(EXTRA_PRIORITY,1));
             editTextPriority.setText(priority);
             textViewDateAdded.setText(intent.getStringExtra(EXTRA_DATE_ADDED));
