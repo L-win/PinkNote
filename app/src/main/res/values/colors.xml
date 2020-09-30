@@ -4,6 +4,6 @@
     <color name="colorPrimaryDark">#FF3B73</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="colorAddEdit">#FFFFFF</color>
-
+<color name="noteBackground">#F8C3C3</color>
     <!--    <color name="textColorPrimary">#9C27B0</color>-->
 </resources>

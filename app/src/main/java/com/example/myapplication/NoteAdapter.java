@@ -10,9 +10,6 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class NoteAdapter extends ListAdapter<Note,NoteAdapter.NoteHolder>{
 
     private OnItemClickListener listener;
@@ -48,7 +45,13 @@ public class NoteAdapter extends ListAdapter<Note,NoteAdapter.NoteHolder>{
         Note currentNote = getItem(position);
         holder.textViewTitle.setText(currentNote.getTitle());
         holder.textViewDescription.setText(currentNote.getDescription());
-        holder.textViewPriority.setText(String.valueOf(currentNote.getPriority()));
+//        holder.textViewPriority.setText(String.valueOf(currentNote.getPriority()));
+
+        if(currentNote.getPriority()==1){
+            holder.textViewPriority.setText("pinned");
+        }else{
+            holder.textViewPriority.setText("");
+        }
     }
 
     public Note getNoteAt(int position){

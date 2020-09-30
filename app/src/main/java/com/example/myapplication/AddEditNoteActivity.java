@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +27,7 @@ public class AddEditNoteActivity extends AppCompatActivity  {
     private EditText editTextDescription;
     private EditText editTextPriority;
     private TextView textViewDateAdded;
+    private Switch switchPin;
 
     Calendar c = Calendar.getInstance();
 
@@ -37,8 +38,10 @@ public class AddEditNoteActivity extends AppCompatActivity  {
 
         editTextTitle = findViewById(R.id.edit_text_title);
         editTextDescription = findViewById(R.id.edit_text_description);
-        editTextPriority = findViewById(R.id.edit_text_priority);
+//        editTextPriority = findViewById(R.id.edit_text_priority);
         textViewDateAdded = findViewById(R.id.text_view_date_added);
+        switchPin = findViewById(R.id.switch1);
+
 
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
 
@@ -48,9 +51,12 @@ public class AddEditNoteActivity extends AppCompatActivity  {
             setTitle("Edit Note");
             editTextTitle.setText(intent.getStringExtra(EXTRA_TITLE));
             editTextDescription.setText(intent.getStringExtra(EXTRA_DESCRIPTION));
-            String priority = Integer.toString(intent.getIntExtra(EXTRA_PRIORITY,1));
-            editTextPriority.setText(priority);
+            String priority = Integer.toString(intent.getIntExtra(EXTRA_PRIORITY,0));
+//            editTextPriority.setText(priority);
             textViewDateAdded.setText(intent.getStringExtra(EXTRA_DATE_ADDED));
+            if(priority.equals("1")){
+                switchPin.setChecked(true);
+            }
         } else {
             setTitle("Add Note");
         }
@@ -59,9 +65,13 @@ public class AddEditNoteActivity extends AppCompatActivity  {
     private void saveNote(){
         String title = editTextTitle.getText().toString();
         String description = editTextDescription.getText().toString();
-//        int priority = numberPickerPriority.getValue();
-        String priorityT = editTextPriority.getText().toString();
-        int priorityNew = Integer.parseInt(priorityT);
+//        String priorityT = editTextPriority.getText().toString();
+        int priorityNew;
+        if (switchPin.isChecked()){
+            priorityNew = 1;
+        }else {
+            priorityNew=0;
+        }
 
         String dateAdded;
         int year = c.get(Calendar.YEAR);
