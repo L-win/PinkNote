@@ -14,7 +14,7 @@
         android:text="L-win"
         tools:listitem="@layout/note_item"
         android:background="@color/colorPrimaryDark"
-        android:paddingBottom="15sp"
+
         />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
