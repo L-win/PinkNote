@@ -8,11 +8,16 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class AddEditNoteActivity extends AppCompatActivity  {
 
@@ -25,23 +30,25 @@ public class AddEditNoteActivity extends AppCompatActivity  {
 
     private EditText editTextTitle;
     private EditText editTextDescription;
-    private EditText editTextPriority;
     private TextView textViewDateAdded;
     private Switch switchPin;
 
     Calendar c = Calendar.getInstance();
 
+    private LinearLayout mainLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_note);
 
         editTextTitle = findViewById(R.id.edit_text_title);
         editTextDescription = findViewById(R.id.edit_text_description);
-//        editTextPriority = findViewById(R.id.edit_text_priority);
         textViewDateAdded = findViewById(R.id.text_view_date_added);
         switchPin = findViewById(R.id.switch1);
 
+        mainLayout = findViewById(R.id.main_layout);
 
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
 
@@ -52,11 +59,22 @@ public class AddEditNoteActivity extends AppCompatActivity  {
             editTextTitle.setText(intent.getStringExtra(EXTRA_TITLE));
             editTextDescription.setText(intent.getStringExtra(EXTRA_DESCRIPTION));
             String priority = Integer.toString(intent.getIntExtra(EXTRA_PRIORITY,0));
-//            editTextPriority.setText(priority);
-            textViewDateAdded.setText(intent.getStringExtra(EXTRA_DATE_ADDED));
             if(priority.equals("1")){
                 switchPin.setChecked(true);
             }
+
+            String currDate = intent.getStringExtra(EXTRA_DATE_ADDED);
+            SimpleDateFormat parser = new SimpleDateFormat("EEE MMM d HH:mm:ss zzz yyyy");
+            Date date = null;
+            try {
+                date = parser.parse(currDate);
+            }catch (Exception e){
+
+            }
+            SimpleDateFormat formatter = new SimpleDateFormat("MMMM dd, yyyy");
+            String formattedDate = formatter.format(date);
+
+            textViewDateAdded.setText(formattedDate);
         } else {
             setTitle("Add Note");
         }
@@ -65,7 +83,6 @@ public class AddEditNoteActivity extends AppCompatActivity  {
     private void saveNote(){
         String title = editTextTitle.getText().toString();
         String description = editTextDescription.getText().toString();
-//        String priorityT = editTextPriority.getText().toString();
         int priorityNew;
         if (switchPin.isChecked()){
             priorityNew = 1;
@@ -73,16 +90,16 @@ public class AddEditNoteActivity extends AppCompatActivity  {
             priorityNew=0;
         }
 
-        String dateAdded;
-        int year = c.get(Calendar.YEAR);
-        int month = c.get(Calendar.MONTH);
-        int day = c.get(Calendar.DAY_OF_MONTH);
-        dateAdded = Integer.toString(year) +
-                "." + Integer.toString(month) +
-                "." + Integer.toString(day);
+//        String dateAdded;
+//        dateAdded = Integer.toString(c.get(Calendar.YEAR)) +
+//                "." + Integer.toString(c.get(Calendar.MONTH)) +
+//                "." + Integer.toString(c.get(Calendar.DAY_OF_MONTH));
+
+        String currentDate = c.getTime().toString();
 
         if (title.trim().isEmpty()||description.trim().isEmpty()){
-            Toast.makeText(this, "Fields are empty", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "Fields are empty", Toast.LENGTH_SHORT).show();
+            Snackbar.make(mainLayout,"Fields are empty.",Snackbar.LENGTH_LONG).show();
             return;
         }
 
@@ -90,7 +107,7 @@ public class AddEditNoteActivity extends AppCompatActivity  {
         data.putExtra(EXTRA_TITLE,title);
         data.putExtra(EXTRA_DESCRIPTION,description);
         data.putExtra(EXTRA_PRIORITY,priorityNew);
-        data.putExtra(EXTRA_DATE_ADDED,dateAdded);
+        data.putExtra(EXTRA_DATE_ADDED,currentDate);
 
         int id = getIntent().getIntExtra(EXTRA_ID,-1);
         if (id != -1){

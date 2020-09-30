@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -15,9 +16,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
@@ -27,11 +30,14 @@ public class MainActivity extends AppCompatActivity {
 
     private NoteViewModel noteViewModel;
 
+    private CoordinatorLayout mainLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mainLayout = findViewById(R.id.main_layout);
         // BUTTON: ADD
         FloatingActionButton buttonAddNote = findViewById(R.id.button_add_note);
         buttonAddNote.setOnClickListener(new View.OnClickListener() {
@@ -72,7 +78,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 noteViewModel.delete(adapter.getNoteAt(viewHolder.getAdapterPosition()));
-                Toast.makeText(MainActivity.this, "Note Deleted", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this, "Note Deleted", Toast.LENGTH_SHORT).show();
+                Snackbar.make(mainLayout,"Note deleted.",Snackbar.LENGTH_LONG).show();
             }
         }).attachToRecyclerView(recyclerView);
 
@@ -104,8 +111,8 @@ public class MainActivity extends AppCompatActivity {
 
             Note note = new Note(title, description, dateAdded, priority);
             noteViewModel.insert(note);
-
-            Toast.makeText(this,"Note saved", Toast.LENGTH_LONG).show();
+//            Toast.makeText(this,"Note saved", Toast.LENGTH_LONG).show();
+            Snackbar.make(mainLayout,"Note saved.",Snackbar.LENGTH_LONG).show();
         } else if (requestCode == EDIT_NOTE_REQUEST && resultCode == RESULT_OK) {
             int id = data.getIntExtra(AddEditNoteActivity.EXTRA_ID,-1);
             String dateAdded = data.getStringExtra(AddEditNoteActivity.EXTRA_DATE_ADDED);
@@ -123,7 +130,8 @@ public class MainActivity extends AppCompatActivity {
             note.setId(id);
 
             noteViewModel.update(note);
-            Toast.makeText(this, "updated", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "updated", Toast.LENGTH_SHORT).show();
+            Snackbar.make(mainLayout,"Note updated",Snackbar.LENGTH_LONG).show();
         }
 
     }
@@ -140,7 +148,8 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.delete_all_notes:
                 noteViewModel.deleteAllNotes();
-                Toast.makeText(this, "All notes deleted", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "All notes are deleted", Toast.LENGTH_SHORT).show();
+                Snackbar.make(mainLayout,"All notes are deleted",Snackbar.LENGTH_LONG).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
