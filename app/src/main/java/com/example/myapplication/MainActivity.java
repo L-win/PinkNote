@@ -19,7 +19,6 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.util.Calendar;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -125,8 +124,6 @@ public class MainActivity extends AppCompatActivity {
 
             noteViewModel.update(note);
             Toast.makeText(this, "updated", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Not Saved", Toast.LENGTH_LONG).show();
         }
 
     }

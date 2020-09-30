@@ -1,24 +1,20 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
 
-import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.text.DateFormat;
 import java.util.Calendar;
 
-public class AddEditNoteActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener  {
+public class AddEditNoteActivity extends AppCompatActivity  {
 
     public static final String EXTRA_ID = "com.example.myapplication.EXTRA_ID";
     public static final String EXTRA_TITLE = "com.example.myapplication.EXTRA_TITLE";
@@ -43,17 +39,6 @@ public class AddEditNoteActivity extends AppCompatActivity implements DatePicker
         editTextDescription = findViewById(R.id.edit_text_description);
         editTextPriority = findViewById(R.id.edit_text_priority);
         textViewDateAdded = findViewById(R.id.text_view_date_added);
-
-        textViewDateAdded.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogFragment datePicker = new DatePickerFragment();
-                datePicker.show(getSupportFragmentManager(),"date picker");
-            }
-        });
-
-//        numberPickerPriority.setMaxValue(10);
-//        numberPickerPriority.setMinValue(1);
 
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
 
@@ -121,14 +106,5 @@ public class AddEditNoteActivity extends AppCompatActivity implements DatePicker
                 return super.onOptionsItemSelected(item);
         }
     }
-    @Override
-    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
 
-        c.set(Calendar.YEAR, year);
-        c.set(Calendar.MONTH, month);
-        c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-        String currentDateString = DateFormat.getDateInstance(DateFormat.FULL).format(c.getTime());
-
-        textViewDateAdded.setText(currentDateString);
-    }
 }
