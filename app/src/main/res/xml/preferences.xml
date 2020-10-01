@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="Settings">
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="check_box_dark_mode"
+            android:title="Dark Mode"
+            android:summary="Switch to Dark Mode"
+            />
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/Array"
+            android:entryValues="@array/Array"
+            android:key="list_language"
+            android:title="Language"
+            android:summary="English, Russian"
+            />
+    </PreferenceCategory>
+</PreferenceScreen>

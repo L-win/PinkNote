@@ -6,17 +6,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mainLayout = findViewById(R.id.main_layout);
+
         // BUTTON: ADD
         FloatingActionButton buttonAddNote = findViewById(R.id.button_add_note);
         buttonAddNote.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +49,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent,ADD_NOTE_REQUEST);
             }
         });
+
+        // SETTINGS
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        boolean firstItem = preferences.getBoolean("check_box_dark_mode", true);
+        if (firstItem){
+            Toast.makeText(this, "Dark Mode is enabled.", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(this, "Dark Mode is disabled.", Toast.LENGTH_SHORT).show();
+        }
 
         // RECYCLER VIEW
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
@@ -78,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 noteViewModel.delete(adapter.getNoteAt(viewHolder.getAdapterPosition()));
-//                Toast.makeText(MainActivity.this, "Note Deleted", Toast.LENGTH_SHORT).show();
                 Snackbar.make(mainLayout,"deleted",Snackbar.LENGTH_LONG).show();
             }
         }).attachToRecyclerView(recyclerView);
@@ -111,7 +121,6 @@ public class MainActivity extends AppCompatActivity {
 
             Note note = new Note(title, description, dateAdded, priority);
             noteViewModel.insert(note);
-//            Toast.makeText(this,"Note saved", Toast.LENGTH_LONG).show();
             Snackbar.make(mainLayout,"saved",Snackbar.LENGTH_LONG).show();
         } else if (requestCode == EDIT_NOTE_REQUEST && resultCode == RESULT_OK) {
             int id = data.getIntExtra(AddEditNoteActivity.EXTRA_ID,-1);
@@ -130,7 +139,6 @@ public class MainActivity extends AppCompatActivity {
             note.setId(id);
 
             noteViewModel.update(note);
-//            Toast.makeText(this, "updated", Toast.LENGTH_SHORT).show();
             Snackbar.make(mainLayout,"updated",Snackbar.LENGTH_LONG).show();
         }
 
@@ -148,8 +156,10 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.delete_all_notes:
                 noteViewModel.deleteAllNotes();
-//                Toast.makeText(this, "All notes are deleted", Toast.LENGTH_SHORT).show();
                 Snackbar.make(mainLayout,"All notes are deleted",Snackbar.LENGTH_LONG).show();
+                return true;
+            case R.id.settings:
+                startActivity(new Intent(this, SettingsActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
