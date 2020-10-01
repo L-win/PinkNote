@@ -7,13 +7,15 @@
     android:layout_marginStart="8dp"
     android:layout_marginTop="8dp"
     android:layout_marginBottom="8dp"
-    app:cardCornerRadius="7sp">
+    app:cardCornerRadius="7sp"
+
+    >
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        android:background="@color/noteBackground"
+        android:background="@color/colorMainActvNoteBg"
         >
 
         <TextView

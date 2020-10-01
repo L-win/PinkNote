@@ -3,7 +3,7 @@
     android:shape="rectangle"
     >
     <solid
-        android:color="@color/noteBackground" />
+        android:color="@color/colorMainActvNoteBg" />
     <corners
         android:radius="7sp" />
 </shape>

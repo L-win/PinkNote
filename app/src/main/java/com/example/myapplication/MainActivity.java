@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 noteViewModel.delete(adapter.getNoteAt(viewHolder.getAdapterPosition()));
 //                Toast.makeText(MainActivity.this, "Note Deleted", Toast.LENGTH_SHORT).show();
-                Snackbar.make(mainLayout,"Note deleted.",Snackbar.LENGTH_LONG).show();
+                Snackbar.make(mainLayout,"deleted",Snackbar.LENGTH_LONG).show();
             }
         }).attachToRecyclerView(recyclerView);
 
@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
             Note note = new Note(title, description, dateAdded, priority);
             noteViewModel.insert(note);
 //            Toast.makeText(this,"Note saved", Toast.LENGTH_LONG).show();
-            Snackbar.make(mainLayout,"Note saved.",Snackbar.LENGTH_LONG).show();
+            Snackbar.make(mainLayout,"saved",Snackbar.LENGTH_LONG).show();
         } else if (requestCode == EDIT_NOTE_REQUEST && resultCode == RESULT_OK) {
             int id = data.getIntExtra(AddEditNoteActivity.EXTRA_ID,-1);
             String dateAdded = data.getStringExtra(AddEditNoteActivity.EXTRA_DATE_ADDED);
@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
 
             noteViewModel.update(note);
 //            Toast.makeText(this, "updated", Toast.LENGTH_SHORT).show();
-            Snackbar.make(mainLayout,"Note updated",Snackbar.LENGTH_LONG).show();
+            Snackbar.make(mainLayout,"updated",Snackbar.LENGTH_LONG).show();
         }
 
     }
