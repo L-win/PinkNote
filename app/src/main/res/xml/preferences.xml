@@ -11,8 +11,8 @@
             />
         <ListPreference
             android:defaultValue="1"
-            android:entries="@array/Array"
-            android:entryValues="@array/Array"
+            android:entries="@array/Languages"
+            android:entryValues="@array/Languages"
             android:key="list_language"
             android:title="Language"
             android:summary="English, Russian"

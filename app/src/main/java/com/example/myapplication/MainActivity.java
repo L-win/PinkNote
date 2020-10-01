@@ -35,9 +35,18 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        // SETTINGS
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        boolean settingsDarkMode = preferences.getBoolean("check_box_dark_mode", true);
+        if(settingsDarkMode){
+            setTheme(R.style.darktheme);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // FOR SNACKBAR
         mainLayout = findViewById(R.id.main_layout);
 
         // BUTTON: ADD
@@ -49,15 +58,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent,ADD_NOTE_REQUEST);
             }
         });
-
-        // SETTINGS
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        boolean firstItem = preferences.getBoolean("check_box_dark_mode", true);
-        if (firstItem){
-            Toast.makeText(this, "Dark Mode is enabled.", Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(this, "Dark Mode is disabled.", Toast.LENGTH_SHORT).show();
-        }
 
         // RECYCLER VIEW
         RecyclerView recyclerView = findViewById(R.id.recycler_view);

@@ -1,8 +1,10 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -40,6 +42,12 @@ public class AddEditNoteActivity extends AppCompatActivity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        // SETTINGS
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        boolean settingsDarkMode = preferences.getBoolean("check_box_dark_mode", true);
+        if(settingsDarkMode){
+            setTheme(R.style.darktheme);
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_note);
 

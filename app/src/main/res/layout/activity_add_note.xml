@@ -7,7 +7,7 @@
     android:orientation="vertical"
 
     tools:context=".AddEditNoteActivity"
-    android:background="@color/colorAppBackground"
+    android:background="?attr/backgroundColor"
     android:id="@+id/main_layout"
     >
 

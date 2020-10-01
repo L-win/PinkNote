@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="Array">
-        <item>Item1</item>
-        <item>Item2</item>
+    <string-array name="Languages">
+        <item>English</item>
+        <item>Russian</item>
     </string-array>
-    <string-array name="Array_Two">
-        <item>Item1</item>
-        <item>Item2</item>
-    </string-array>
+
     <!-- Reply Preference -->
     <string-array name="reply_entries">
         <item>Reply</item>
