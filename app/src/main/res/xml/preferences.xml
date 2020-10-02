@@ -6,8 +6,8 @@
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="check_box_dark_mode"
-            android:title="Dark Mode"
             android:summary="Switch to Dark Mode"
+            android:title="Dark Mode"
             />
         <ListPreference
             android:defaultValue="1"

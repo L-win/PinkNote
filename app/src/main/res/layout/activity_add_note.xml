@@ -19,7 +19,9 @@
         android:hint="@string/note_hint_title"
         android:inputType="textMultiLine"
         android:elevation="2dp"
-        android:background="@drawable/edit_text_background"
+        android:textColor="?attr/noteItemTextColor"
+        android:textColorHint="?attr/noteItemTextColor"
+        android:background="?attr/noteItenBackgroundDrawable"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
@@ -39,7 +41,9 @@
         android:hint="@string/note_hint_description"
         android:inputType="textMultiLine"
         android:elevation="2dp"
-        android:background="@drawable/edit_text_background"
+        android:textColor="?attr/noteItemTextColor"
+        android:textColorHint="?attr/noteItemTextColor"
+        android:background="?attr/noteItenBackgroundDrawable"
         />
 
 
@@ -53,7 +57,8 @@
         android:padding="10dp"
         android:elevation="2dp"
         android:text="Pin"
-        android:background="@drawable/edit_text_background"
+        android:textColor="?attr/noteItemTextColor"
+        android:background="?attr/noteItenBackgroundDrawable"
         />
 
     <RelativeLayout
@@ -64,7 +69,8 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:elevation="2dp"
-        android:background="@drawable/edit_text_background">
+        android:background="?attr/noteItenBackgroundDrawable"
+        >
 
         <TextView
             android:id="@+id/text_view_date_added"
@@ -72,7 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-
+            android:textColor="?attr/noteItemTextColor"
             android:padding="10dp"
             />
 
@@ -83,6 +89,7 @@
             android:layout_alignParentLeft="true"
             android:text="@string/note_hint_date"
             android:padding="10dp"
+            android:textColor="?attr/noteItemTextColor"
             />
 
     </RelativeLayout>
