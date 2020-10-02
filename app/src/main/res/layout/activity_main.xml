@@ -7,7 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:id="@+id/main_layout">
+    android:id="@+id/main_layout"
+    >
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
@@ -15,7 +16,6 @@
         android:layout_height="match_parent"
         tools:listitem="@layout/note_item"
         android:background="?attr/backgroundColor"
-
         />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

@@ -42,14 +42,12 @@ public class MainActivity extends AppCompatActivity{
         // SETTINGS
         preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 //        boolean settingsDarkMode = preferences.getBoolean("check_box_dark_mode", true);
-        if(PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getBoolean("check_box_dark_mode", true)){
+        if(preferences.getBoolean("check_box_dark_mode", true)){
             setTheme(R.style.darktheme);
             darkModeState = true;
         }else{
             setTheme(R.style.AppTheme);
         }
-
-
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -76,6 +74,7 @@ public class MainActivity extends AppCompatActivity{
         recyclerView.setAdapter((adapter));
 
         noteViewModel = new ViewModelProvider(this).get(NoteViewModel.class);
+
         noteViewModel.getAllNotes().observe(this, new Observer<List<Note>>() {
             @Override
             public void onChanged(List<Note> notes) {
@@ -184,7 +183,6 @@ public class MainActivity extends AppCompatActivity{
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(R.xml.preferences, rootKey);
-
         }
     }
 

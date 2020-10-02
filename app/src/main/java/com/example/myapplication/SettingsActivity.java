@@ -47,14 +47,12 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
         Intent intent = getIntent();
         finish();
         startActivity(intent);
-
     }
 
     public static class SettingsFragment extends PreferenceFragmentCompat {
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(R.xml.preferences, rootKey);
-
         }
     }
 

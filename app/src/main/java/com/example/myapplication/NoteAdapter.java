@@ -48,9 +48,12 @@ public class NoteAdapter extends ListAdapter<Note,NoteAdapter.NoteHolder>{
 //        holder.textViewPriority.setText(String.valueOf(currentNote.getPriority()));
 
         if(currentNote.getPriority()==1){
-            holder.textViewPriority.setText("pinned");
+//            holder.textViewPriority.setText("pinned");
+//            holder.textViewPriority.setVisibility(View.VISIBLE);
         }else{
-            holder.textViewPriority.setText("");
+//            holder.textViewPriority.setText("");
+            holder.textViewPriority.setBackground(null);
+//            holder.textViewPriority.setVisibility(View.GONE);
         }
     }
 
