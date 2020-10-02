@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class NoteAdapter extends ListAdapter<Note,NoteAdapter.NoteHolder>{
+public class NoteAdapter extends ListAdapter<Note, NoteAdapter.NoteHolder> {
 
     private OnItemClickListener listener;
 
@@ -36,7 +36,7 @@ public class NoteAdapter extends ListAdapter<Note,NoteAdapter.NoteHolder>{
     @Override
     public NoteHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.note_item,parent,false);
+                .inflate(R.layout.note_item, parent, false);
         return new NoteHolder(itemView);
     }
 
@@ -47,20 +47,18 @@ public class NoteAdapter extends ListAdapter<Note,NoteAdapter.NoteHolder>{
         holder.textViewDescription.setText(currentNote.getDescription());
 //        holder.textViewPriority.setText(String.valueOf(currentNote.getPriority()));
 
-        if(currentNote.getPriority()==1){
-//            holder.textViewPriority.setText("pinned");
-//            holder.textViewPriority.setVisibility(View.VISIBLE);
-        }else{
+        if (currentNote.getPriority() != 1) {
 //            holder.textViewPriority.setText("");
             holder.textViewPriority.setBackground(null);
 //            holder.textViewPriority.setVisibility(View.GONE);
         }
     }
 
-    public Note getNoteAt(int position){
+    public Note getNoteAt(int position) {
         return getItem(position);
     }
-    class NoteHolder extends RecyclerView.ViewHolder{
+
+    class NoteHolder extends RecyclerView.ViewHolder {
         private TextView textViewTitle;
         private TextView textViewDescription;
         private TextView textViewPriority;
@@ -75,7 +73,7 @@ public class NoteAdapter extends ListAdapter<Note,NoteAdapter.NoteHolder>{
                 @Override
                 public void onClick(View v) {
                     int position = getAdapterPosition();
-                    if (listener != null && position != RecyclerView.NO_POSITION){
+                    if (listener != null && position != RecyclerView.NO_POSITION) {
                         listener.onItemClick(getItem(position));
                     }
                 }
@@ -88,7 +86,7 @@ public class NoteAdapter extends ListAdapter<Note,NoteAdapter.NoteHolder>{
         void onItemClick(Note note);
     }
 
-    public void setOnItemClickListener(OnItemClickListener listener){
+    public void setOnItemClickListener(OnItemClickListener listener) {
         this.listener = listener;
     }
 }

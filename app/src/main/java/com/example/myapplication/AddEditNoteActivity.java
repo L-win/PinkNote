@@ -21,7 +21,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class AddEditNoteActivity extends AppCompatActivity  {
+public class AddEditNoteActivity extends AppCompatActivity {
 
     public static final String EXTRA_ID = "com.example.myapplication.EXTRA_ID";
     public static final String EXTRA_TITLE = "com.example.myapplication.EXTRA_TITLE";
@@ -45,7 +45,7 @@ public class AddEditNoteActivity extends AppCompatActivity  {
         // SETTINGS
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         boolean settingsDarkMode = preferences.getBoolean("check_box_dark_mode", true);
-        if(settingsDarkMode){
+        if (settingsDarkMode) {
             setTheme(R.style.darktheme);
         }
         super.onCreate(savedInstanceState);
@@ -62,12 +62,12 @@ public class AddEditNoteActivity extends AppCompatActivity  {
 
         Intent intent = getIntent();
 
-        if(intent.hasExtra(EXTRA_ID)){
+        if (intent.hasExtra(EXTRA_ID)) {
             setTitle("Edit Note");
             editTextTitle.setText(intent.getStringExtra(EXTRA_TITLE));
             editTextDescription.setText(intent.getStringExtra(EXTRA_DESCRIPTION));
-            String priority = Integer.toString(intent.getIntExtra(EXTRA_PRIORITY,0));
-            if(priority.equals("1")){
+            String priority = Integer.toString(intent.getIntExtra(EXTRA_PRIORITY, 0));
+            if (priority.equals("1")) {
                 switchPin.setChecked(true);
             }
 
@@ -76,7 +76,7 @@ public class AddEditNoteActivity extends AppCompatActivity  {
             Date date = null;
             try {
                 date = parser.parse(currDate);
-            }catch (Exception e){
+            } catch (Exception e) {
 
             }
             SimpleDateFormat formatter = new SimpleDateFormat("MMMM dd, yyyy");
@@ -88,14 +88,14 @@ public class AddEditNoteActivity extends AppCompatActivity  {
         }
     }
 
-    private void saveNote(){
+    private void saveNote() {
         String title = editTextTitle.getText().toString();
         String description = editTextDescription.getText().toString();
         int priorityNew;
-        if (switchPin.isChecked()){
+        if (switchPin.isChecked()) {
             priorityNew = 1;
-        }else {
-            priorityNew=0;
+        } else {
+            priorityNew = 0;
         }
 
 //        String dateAdded;
@@ -105,35 +105,35 @@ public class AddEditNoteActivity extends AppCompatActivity  {
 
         String currentDate = c.getTime().toString();
 
-        if (title.trim().isEmpty()||description.trim().isEmpty()){
+        if (title.trim().isEmpty() || description.trim().isEmpty()) {
 //            Toast.makeText(this, "Fields are empty", Toast.LENGTH_SHORT).show();
-            Snackbar.make(mainLayout,"Fields are empty.",Snackbar.LENGTH_LONG).show();
+            Snackbar.make(mainLayout, "Fields are empty.", Snackbar.LENGTH_LONG).show();
             return;
         }
 
         Intent data = new Intent();
-        data.putExtra(EXTRA_TITLE,title);
-        data.putExtra(EXTRA_DESCRIPTION,description);
-        data.putExtra(EXTRA_PRIORITY,priorityNew);
-        data.putExtra(EXTRA_DATE_ADDED,currentDate);
+        data.putExtra(EXTRA_TITLE, title);
+        data.putExtra(EXTRA_DESCRIPTION, description);
+        data.putExtra(EXTRA_PRIORITY, priorityNew);
+        data.putExtra(EXTRA_DATE_ADDED, currentDate);
 
-        int id = getIntent().getIntExtra(EXTRA_ID,-1);
-        if (id != -1){
-            data.putExtra(EXTRA_ID,id);
+        int id = getIntent().getIntExtra(EXTRA_ID, -1);
+        if (id != -1) {
+            data.putExtra(EXTRA_ID, id);
         }
 
-        setResult(RESULT_OK,data);
+        setResult(RESULT_OK, data);
         finish();
     }
 
-    public boolean onCreateOptionsMenu(Menu menu){
+    public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.add_note_menu,menu);
+        menuInflater.inflate(R.menu.add_note_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.save_note:
                 saveNote();
                 return true;

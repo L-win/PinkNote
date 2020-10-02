@@ -2,75 +2,70 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
 
-    tools:context=".AddEditNoteActivity"
     android:background="?attr/backgroundColor"
-    android:id="@+id/main_layout"
-    >
+    android:orientation="vertical"
+    tools:context=".AddEditNoteActivity">
 
     <EditText
         android:id="@+id/edit_text_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="30sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="?attr/noteItenBackgroundDrawable"
+        android:elevation="2dp"
         android:hint="@string/note_hint_title"
         android:inputType="textMultiLine"
-        android:elevation="2dp"
+        android:padding="30sp"
         android:textColor="?attr/noteItemTextColor"
-        android:textColorHint="?attr/noteItemTextColor"
-        android:background="?attr/noteItenBackgroundDrawable"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-    />
+        android:textColorHint="?attr/noteItemTextColor" />
 
     <EditText
         android:id="@+id/edit_text_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:maxHeight="400dp"
-        android:minHeight="150dp"
-        android:gravity="top"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
-        android:padding="15dp"
+        android:background="?attr/noteItenBackgroundDrawable"
+        android:elevation="2dp"
+        android:gravity="top"
         android:hint="@string/note_hint_description"
         android:inputType="textMultiLine"
-        android:elevation="2dp"
+        android:maxHeight="400dp"
+        android:minHeight="150dp"
+        android:padding="15dp"
         android:textColor="?attr/noteItemTextColor"
-        android:textColorHint="?attr/noteItemTextColor"
-        android:background="?attr/noteItenBackgroundDrawable"
-        />
+        android:textColorHint="?attr/noteItemTextColor" />
 
 
     <Switch
         android:id="@+id/switch1"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:elevation="2dp"
-        android:text="Pin"
-        android:textColor="?attr/noteItemTextColor"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
         android:background="?attr/noteItenBackgroundDrawable"
-        />
+        android:elevation="2dp"
+        android:padding="10dp"
+        android:text="Pin"
+        android:textColor="?attr/noteItemTextColor" />
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="4dp"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
-        android:elevation="2dp"
         android:background="?attr/noteItenBackgroundDrawable"
-        >
+        android:elevation="2dp"
+        android:padding="4dp">
 
         <TextView
             android:id="@+id/text_view_date_added"
@@ -78,19 +73,17 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:textColor="?attr/noteItemTextColor"
             android:padding="10dp"
-            />
+            android:textColor="?attr/noteItemTextColor" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
-            android:text="@string/note_hint_date"
             android:padding="10dp"
-            android:textColor="?attr/noteItemTextColor"
-            />
+            android:text="@string/note_hint_date"
+            android:textColor="?attr/noteItemTextColor" />
 
     </RelativeLayout>
 
