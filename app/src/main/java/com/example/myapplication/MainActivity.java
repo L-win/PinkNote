@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -25,23 +26,30 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
     public static final int ADD_NOTE_REQUEST = 1;
     public static final int EDIT_NOTE_REQUEST = 2;
+    public static final int SETTINGS_CHANGED = 3;
 
     private NoteViewModel noteViewModel;
 
     private CoordinatorLayout mainLayout;
-
+    SharedPreferences preferences;
+    boolean darkModeState;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         // SETTINGS
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        boolean settingsDarkMode = preferences.getBoolean("check_box_dark_mode", true);
-        if(settingsDarkMode){
+        preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+//        boolean settingsDarkMode = preferences.getBoolean("check_box_dark_mode", true);
+        if(PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getBoolean("check_box_dark_mode", true)){
             setTheme(R.style.darktheme);
+            darkModeState = true;
+        }else{
+            setTheme(R.style.AppTheme);
         }
+
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -141,6 +149,11 @@ public class MainActivity extends AppCompatActivity {
             noteViewModel.update(note);
             Snackbar.make(mainLayout,"updated",Snackbar.LENGTH_LONG).show();
         }
+//        else if(requestCode==SETTINGS_CHANGED && resultCode == RESULT_OK){
+//            Intent intent = getIntent();
+//            finish();
+//            startActivity(intent);
+//        }
 
     }
 
@@ -165,5 +178,28 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
 
+    }
+
+    public static class SettingsFragment extends PreferenceFragmentCompat {
+        @Override
+        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+            setPreferencesFromResource(R.xml.preferences, rootKey);
+
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(preferences.getBoolean("check_box_dark_mode", true) != darkModeState){
+            if(preferences.getBoolean("check_box_dark_mode", true)){
+                Toast.makeText(this, "Dark Mode is On", Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(this, "Dark Mode is Off", Toast.LENGTH_SHORT).show();
+            }
+            Intent intent = getIntent();
+            finish();
+            startActivity(intent);
+        }
     }
 }

@@ -11,15 +11,13 @@
         <item name="noteItenBackgroundColor">#FFFFFF</item>
         <item name="backgroundColor">#ffe4ec</item>
         <item name="noteItenBackgroundDrawable">@drawable/edit_text_background</item>
-
     </style>
 
-    <style name="darktheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="darktheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
         <item name="noteItemTextColor">#FFFF</item>
         <item name="noteItenBackgroundColor">#515151</item>
         <item name="backgroundColor">#272727</item>
         <item name="noteItenBackgroundDrawable">@drawable/edit_text_background_dark</item>
-
     </style>
 
     <style name="PreferenceScreen" parent="Theme.AppCompat.Light.DarkActionBar">
