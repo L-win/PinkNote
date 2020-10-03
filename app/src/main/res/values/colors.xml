@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--    <color name="colorPrimary">#AF284E</color>-->
-    <!--    <color name="colorPrimaryDark">#FF3B73</color>-->
-    <!--    <color name="colorAccent">#03DAC5</color>-->
-    <!--    <color name="colorAddEdit">#FFFFFF</color>-->
-    <!--    <color name="noteBackground">#F8C3C3</color>-->
+
+<!--    <color name="colorPrimary">#fb6092</color>-->
+<!--    <color name="colorPrimaryDark">#f70a61</color>-->
+<!--    <color name="colorAccent">#f3205f</color>-->
 
     <color name="colorPrimary">#fb6092</color>
     <color name="colorPrimaryDark">#f70a61</color>
@@ -14,6 +13,5 @@
     <color name="colorAppBackground">#ffe4ec</color>
 
     <color name="colorAppBackground2">#202020</color>
-
 
 </resources>

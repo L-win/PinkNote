@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/backgroundColor"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,7 +23,7 @@
             android:paddingBottom="10sp"
             android:text="Pink Note"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="?attr/noteItemTextColor"
+            android:textColor="?attr/aboutItemTextColor"
             android:textSize="20sp" />
 
         <TextView
@@ -30,7 +31,7 @@
             android:layout_height="wrap_content"
             android:maxHeight="200dp"
             android:text="Developed by Elvin A.\ngithub.com\/L-win\n2020"
-            android:textColor="?attr/noteItemTextColor"
+            android:textColor="?attr/aboutItemTextColorSecondary"
             android:textSize="16sp" />
     </LinearLayout>
 
@@ -50,7 +51,7 @@
             android:paddingBottom="10sp"
             android:text="Version Info"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="?attr/noteItemTextColor"
+            android:textColor="?attr/aboutItemTextColor"
             android:textSize="20sp" />
 
         <TextView
@@ -58,7 +59,7 @@
             android:layout_height="wrap_content"
             android:maxHeight="200dp"
             android:text="v1.0, October 2020."
-            android:textColor="?attr/noteItemTextColor"
+            android:textColor="?attr/aboutItemTextColorSecondary"
             android:textSize="16sp" />
     </LinearLayout>
 
@@ -78,7 +79,7 @@
             android:paddingBottom="10sp"
             android:text="Recent Changes"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="?attr/noteItemTextColor"
+            android:textColor="?attr/aboutItemTextColor"
             android:textSize="20sp" />
 
         <TextView
@@ -86,7 +87,7 @@
             android:layout_height="wrap_content"
             android:maxHeight="200dp"
             android:text="First release. Oct 4, 2020."
-            android:textColor="?attr/noteItemTextColor"
+            android:textColor="?attr/aboutItemTextColorSecondary"
             android:textSize="16sp" />
     </LinearLayout>
 

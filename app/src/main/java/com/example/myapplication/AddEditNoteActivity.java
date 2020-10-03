@@ -13,7 +13,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -98,15 +97,9 @@ public class AddEditNoteActivity extends AppCompatActivity {
             priorityNew = 0;
         }
 
-//        String dateAdded;
-//        dateAdded = Integer.toString(c.get(Calendar.YEAR)) +
-//                "." + Integer.toString(c.get(Calendar.MONTH)) +
-//                "." + Integer.toString(c.get(Calendar.DAY_OF_MONTH));
-
         String currentDate = c.getTime().toString();
 
         if (title.trim().isEmpty() || description.trim().isEmpty()) {
-//            Toast.makeText(this, "Fields are empty", Toast.LENGTH_SHORT).show();
             Snackbar.make(mainLayout, "Fields are empty.", Snackbar.LENGTH_LONG).show();
             return;
         }

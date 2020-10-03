@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
 
         // SETTINGS
         preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-//        boolean settingsDarkMode = preferences.getBoolean("check_box_dark_mode", true);
         if (preferences.getBoolean("check_box_dark_mode", true)) {
             setTheme(R.style.darktheme);
             darkModeState = true;

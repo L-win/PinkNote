@@ -8,14 +8,15 @@
             android:key="check_box_dark_mode"
             android:summary="Switch to Dark Mode"
             android:title="Dark Mode"
+
             />
-        <ListPreference
-            android:defaultValue="1"
-            android:entries="@array/Languages"
-            android:entryValues="@array/Languages"
-            android:key="list_language"
-            android:title="Language"
-            android:summary="English, Russian"
-            />
+<!--        <ListPreference-->
+<!--            android:defaultValue="1"-->
+<!--            android:entries="@array/Languages"-->
+<!--            android:entryValues="@array/Languages"-->
+<!--            android:key="list_language"-->
+<!--            android:title="Language"-->
+<!--            android:summary="English, Russian"-->
+<!--            />-->
     </PreferenceCategory>
 </PreferenceScreen>
