@@ -47,10 +47,8 @@ public class NoteAdapter extends ListAdapter<Note, NoteAdapter.NoteHolder> {
         holder.textViewDescription.setText(currentNote.getDescription());
 //        holder.textViewPriority.setText(String.valueOf(currentNote.getPriority()));
 
-        if (currentNote.getPriority() != 1) {
-//            holder.textViewPriority.setText("");
+        if (currentNote.getPriority() == 0) {
             holder.textViewPriority.setBackground(null);
-//            holder.textViewPriority.setVisibility(View.GONE);
         }
     }
 
