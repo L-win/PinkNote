@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.pinknote;
 
 import android.content.Context;
 import android.os.AsyncTask;

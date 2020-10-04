@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.myapplication">
+    package="com.example.pinknote">
 
     <application
         android:allowBackup="true"
@@ -10,17 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".AboutActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name="com.example.pinknote.AboutActivity"
+            android:parentActivityName="com.example.pinknote.MainActivity" />
         <activity
-            android:name=".SettingsActivity"
+            android:name="com.example.pinknote.SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName="com.example.pinknote.MainActivity" />
         <activity
-            android:name=".AddEditNoteActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name="com.example.pinknote.AddEditNoteActivity"
+            android:parentActivityName="com.example.pinknote.MainActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.pinknote.MainActivity"
             android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

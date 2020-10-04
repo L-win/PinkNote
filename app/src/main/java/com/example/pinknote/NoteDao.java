@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.pinknote;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;

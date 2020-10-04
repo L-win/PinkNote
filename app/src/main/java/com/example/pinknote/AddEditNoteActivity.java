@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.pinknote;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;

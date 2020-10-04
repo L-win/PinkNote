@@ -1,9 +1,8 @@
-package com.example.myapplication;
+package com.example.pinknote;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;

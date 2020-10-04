@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.pinknote;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
