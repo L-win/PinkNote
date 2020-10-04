@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -95,10 +96,27 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
 
+            // Old
+            //@@NonNull viewholder
             @Override
-            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-                noteViewModel.delete(adapter.getNoteAt(viewHolder.getAdapterPosition()));
-                Snackbar.make(mainLayout, "deleted", Snackbar.LENGTH_LONG).show();
+            public void onSwiped(final RecyclerView.ViewHolder viewHolder, int direction) {
+                new AlertDialog.Builder(viewHolder.itemView.getContext())
+                        .setMessage("Delete note?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                noteViewModel.delete(adapter.getNoteAt(viewHolder.getAdapterPosition()));
+                                Snackbar.make(mainLayout, "deleted", Snackbar.LENGTH_LONG).show();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                adapter.notifyItemChanged(viewHolder.getAdapterPosition());
+                            }
+                        }).create().show();
+
+//                Old
+//                noteViewModel.delete(adapter.getNoteAt(viewHolder.getAdapterPosition()));
+//                Snackbar.make(mainLayout, "deleted", Snackbar.LENGTH_LONG).show();
             }
         }).attachToRecyclerView(recyclerView);
 
@@ -169,8 +187,10 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.delete_all_notes:
-                noteViewModel.deleteAllNotes();
-                Snackbar.make(mainLayout, "All notes are deleted", Snackbar.LENGTH_LONG).show();
+                alterDialoge(this);
+//                Old
+//                noteViewModel.deleteAllNotes();
+//                Snackbar.make(mainLayout, "All notes are deleted", Snackbar.LENGTH_LONG).show();
                 return true;
             case R.id.settings:
                 startActivity(new Intent(this, SettingsActivity.class));
@@ -204,5 +224,21 @@ public class MainActivity extends AppCompatActivity {
             finish();
             startActivity(intent);
         }
+    }
+
+    private void alterDialoge(Context context){
+        new AlertDialog.Builder(context)
+                .setMessage("Delete all notes?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        noteViewModel.deleteAllNotes();
+                        Snackbar.make(mainLayout, "All notes are deleted", Snackbar.LENGTH_LONG).show();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                    }
+                }).create().show();
     }
 }
