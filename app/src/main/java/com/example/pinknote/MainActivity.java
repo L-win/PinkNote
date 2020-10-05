@@ -96,8 +96,6 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
 
-            // Old
-            //@@NonNull viewholder
             @Override
             public void onSwiped(final RecyclerView.ViewHolder viewHolder, int direction) {
                 new AlertDialog.Builder(viewHolder.itemView.getContext())
@@ -113,10 +111,6 @@ public class MainActivity extends AppCompatActivity {
                                 adapter.notifyItemChanged(viewHolder.getAdapterPosition());
                             }
                         }).create().show();
-
-//                Old
-//                noteViewModel.delete(adapter.getNoteAt(viewHolder.getAdapterPosition()));
-//                Snackbar.make(mainLayout, "deleted", Snackbar.LENGTH_LONG).show();
             }
         }).attachToRecyclerView(recyclerView);
 
@@ -188,9 +182,6 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.delete_all_notes:
                 alterDialoge(this);
-//                Old
-//                noteViewModel.deleteAllNotes();
-//                Snackbar.make(mainLayout, "All notes are deleted", Snackbar.LENGTH_LONG).show();
                 return true;
             case R.id.settings:
                 startActivity(new Intent(this, SettingsActivity.class));

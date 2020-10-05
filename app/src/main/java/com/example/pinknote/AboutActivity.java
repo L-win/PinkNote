@@ -12,10 +12,8 @@ public class AboutActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         SharedPreferences preferences;
         preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-//        boolean settingsDarkMode = preferences.getBoolean("check_box_dark_mode", true);
         if (preferences.getBoolean("check_box_dark_mode", true)) {
             setTheme(R.style.darktheme);
-//            darkModeState = true;
         } else {
             setTheme(R.style.AppTheme);
         }
