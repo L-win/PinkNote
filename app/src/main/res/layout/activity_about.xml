@@ -21,7 +21,7 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:paddingBottom="10sp"
-            android:text="Pink Note"
+            android:text="@string/app_name"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="?attr/aboutItemTextColor"
             android:textSize="20sp" />
@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxHeight="200dp"
-            android:text="Developed by Elvin A.\ngithub.com\/L-win\n2020"
+            android:text="@string/app_developer"
             android:textColor="?attr/aboutItemTextColorSecondary"
             android:textSize="16sp" />
     </LinearLayout>
@@ -58,7 +58,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxHeight="200dp"
-            android:text="v1.0, October 2020."
+            android:text="@string/app_current_version"
             android:textColor="?attr/aboutItemTextColorSecondary"
             android:textSize="16sp" />
     </LinearLayout>
@@ -86,7 +86,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxHeight="200dp"
-            android:text="First release. Oct 4, 2020."
+            android:text="@string/app_recent_change"
             android:textColor="?attr/aboutItemTextColorSecondary"
             android:textSize="16sp" />
     </LinearLayout>
