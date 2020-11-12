@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="ds">
-        <attr name="backgroundColor" format="color" />
+        <attr name="appBackgroundColor" format="color" />
         <attr name="noteItenBackgroundColor" format="color" />
         <attr name="noteItenBackgroundDrawable" format="reference" />
         <attr name="noteItemTextColor" format="color" />
@@ -9,8 +9,6 @@
         <attr name="aboutItemTextColor" format="color" />
         <attr name="aboutItemTextColorSecondary" format="color" />
         <attr name="aboutItemUnderlineColor" format="color" />
-
-
     </declare-styleable>
 
 </resources>

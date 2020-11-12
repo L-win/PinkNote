@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    android:background="?attr/backgroundColor"
+    android:background="?attr/appBackgroundColor"
     android:orientation="vertical"
     tools:context=".AddEditNoteActivity">
 
@@ -18,7 +18,6 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
         android:background="?attr/noteItenBackgroundDrawable"
-        android:elevation="2dp"
         android:hint="@string/note_hint_title"
         android:inputType="textMultiLine"
         android:padding="30sp"
@@ -33,7 +32,6 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
         android:background="?attr/noteItenBackgroundDrawable"
-        android:elevation="2dp"
         android:gravity="top"
         android:hint="@string/note_hint_description"
         android:inputType="textMultiLine"
@@ -52,7 +50,6 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
         android:background="?attr/noteItenBackgroundDrawable"
-        android:elevation="2dp"
         android:padding="10dp"
         android:text="Pin"
         android:textColor="?attr/noteItemTextColor"
@@ -65,8 +62,8 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
         android:background="?attr/noteItenBackgroundDrawable"
-        android:elevation="2dp"
-        android:padding="4dp">
+        android:padding="4dp"
+        android:textColor="?attr/noteItemTextColor">
 
         <TextView
             android:id="@+id/text_view_date_added"
