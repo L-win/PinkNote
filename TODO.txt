@@ -1,6 +1,9 @@
 TODO PinkNote
 
-git add . && git commit -m 'Added screenshots and TODO file to project.'
+2023
+- change package name from "example" to "elvina"
+- update dependencies.
+- fix round icon
 
 2022-Oct
 - add text to main screen if there are no notes: "Empty"
