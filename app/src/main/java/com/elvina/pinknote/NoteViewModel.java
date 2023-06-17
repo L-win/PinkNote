@@ -1,4 +1,4 @@
-package com.example.pinknote;
+package com.elvina.pinknote;
 
 import android.app.Application;
 

@@ -2,6 +2,7 @@ TODO PinkNote
 
 2023
 - change package name from "example" to "elvina"
+- change project structure. create folders (data,activity)
 
 2022-Oct
 - add text to main screen if there are no notes: "Empty"

@@ -1,4 +1,4 @@
-package com.example.pinknote;
+package com.elvina.pinknote;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;

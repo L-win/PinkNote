@@ -1,10 +1,12 @@
-package com.example.pinknote;
+package com.elvina.pinknote;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+
+import com.example.pinknote.R;
 
 public class AboutActivity extends AppCompatActivity {
 
