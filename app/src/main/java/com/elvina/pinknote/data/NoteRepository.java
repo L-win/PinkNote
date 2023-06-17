@@ -1,4 +1,4 @@
-package com.elvina.pinknote;
+package com.elvina.pinknote.data;
 
 import android.app.Application;
 import android.os.AsyncTask;

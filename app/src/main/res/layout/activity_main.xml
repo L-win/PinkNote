@@ -6,7 +6,7 @@
     android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.elvina.pinknote.MainActivity">
+    tools:context="com.elvina.pinknote.ui.MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"

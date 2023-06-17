@@ -1,4 +1,4 @@
-package com.elvina.pinknote;
+package com.elvina.pinknote.ui;
 
 import android.content.Intent;
 import android.content.SharedPreferences;

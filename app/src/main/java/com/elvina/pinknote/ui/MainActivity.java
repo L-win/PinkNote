@@ -1,4 +1,4 @@
-package com.elvina.pinknote;
+package com.elvina.pinknote.ui;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,6 +24,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.elvina.pinknote.data.Note;
 import com.example.pinknote.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;

@@ -10,18 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.elvina.pinknote.AboutActivity"
-            android:parentActivityName="com.elvina.pinknote.MainActivity" />
+            android:name="com.elvina.pinknote.ui.AboutActivity"
+            android:parentActivityName="com.elvina.pinknote.ui.MainActivity" />
         <activity
-            android:name="com.elvina.pinknote.SettingsActivity"
+            android:name="com.elvina.pinknote.ui.SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName="com.elvina.pinknote.MainActivity" />
+            android:parentActivityName="com.elvina.pinknote.ui.MainActivity" />
         <activity
-            android:name="com.elvina.pinknote.AddEditNoteActivity"
-            android:parentActivityName="com.elvina.pinknote.MainActivity" />
+            android:name="com.elvina.pinknote.ui.AddEditNoteActivity"
+            android:parentActivityName="com.elvina.pinknote.ui.MainActivity" />
         <activity
             android:exported="true"
-            android:name="com.elvina.pinknote.MainActivity"
+            android:name="com.elvina.pinknote.ui.MainActivity"
             android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

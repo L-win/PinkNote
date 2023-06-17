@@ -1,4 +1,4 @@
-package com.elvina.pinknote;
+package com.elvina.pinknote.ui;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.elvina.pinknote.data.Note;
 import com.example.pinknote.R;
 
 public class NoteAdapter extends ListAdapter<Note, NoteAdapter.NoteHolder> {

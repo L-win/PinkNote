@@ -1,4 +1,4 @@
-package com.elvina.pinknote;
+package com.elvina.pinknote.data;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;

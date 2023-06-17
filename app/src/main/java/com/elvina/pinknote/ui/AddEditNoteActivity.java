@@ -1,4 +1,4 @@
-package com.elvina.pinknote;
+package com.elvina.pinknote.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;

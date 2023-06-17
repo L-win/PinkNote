@@ -1,10 +1,13 @@
-package com.elvina.pinknote;
+package com.elvina.pinknote.ui;
 
 import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+
+import com.elvina.pinknote.data.Note;
+import com.elvina.pinknote.data.NoteRepository;
 
 import java.util.List;
 
