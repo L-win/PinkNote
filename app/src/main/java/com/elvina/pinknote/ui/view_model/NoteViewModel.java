@@ -1,4 +1,4 @@
-package com.elvina.pinknote.ui;
+package com.elvina.pinknote.ui.view_model;
 
 import android.app.Application;
 
@@ -7,7 +7,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.elvina.pinknote.data.Note;
-import com.elvina.pinknote.data.NoteRepository;
+import com.elvina.pinknote.repository.NoteRepository;
 
 import java.util.List;
 

@@ -25,6 +25,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.elvina.pinknote.data.Note;
+import com.elvina.pinknote.ui.adapter.NoteAdapter;
+import com.elvina.pinknote.ui.view_model.NoteViewModel;
 import com.example.pinknote.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;

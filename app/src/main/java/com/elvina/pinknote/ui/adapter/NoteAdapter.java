@@ -1,4 +1,4 @@
-package com.elvina.pinknote.ui;
+package com.elvina.pinknote.ui.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;

@@ -1,9 +1,13 @@
-package com.elvina.pinknote.data;
+package com.elvina.pinknote.repository;
 
 import android.app.Application;
 import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
+
+import com.elvina.pinknote.data.Note;
+import com.elvina.pinknote.data.NoteDao;
+import com.elvina.pinknote.data.NoteDatabase;
 
 import java.util.List;
 

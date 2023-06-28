@@ -1,6 +1,2 @@
-TODO PinkNote
-
-2022-Oct
 - add text to main screen if there are no notes: "Empty"
 - make default note text gray ("Title","Description")
-- add screenshots to project
